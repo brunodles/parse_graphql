@@ -80,3 +80,7 @@ Mas isso não é reproduzivel, seria necessário fazer isso em uma nova maquina.
 Não é isso que queremos.
 
 Para deixar o ambiente reproduzivel vamos criar a nossa imagem.
+
+#### Criando Imagem
+
+Para criar a nossa imagem, vamos precisar criar um arquivo chamado `Dockerfile`, dentro da pasta parse, só pra deixar organizado.
