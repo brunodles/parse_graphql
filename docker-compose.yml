@@ -1,0 +1,8 @@
+parse:
+  build: ./parse
+  command: ./parse/start.sh
+  volumes:
+    - ./parse:/usr/src/app
+  ports:
+    - 3000:3000
+  working_dir: /usr/src/app/

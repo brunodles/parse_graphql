@@ -28,3 +28,8 @@ parse:
     - 3000:3000
   working_dir: /usr/src/app/
 ```
+
+Esse container vai usar a pasta parse.  
+O comando padrão está no `start.sh`.  
+Ele compartilhará a pasta `parse` na pasta `usr/src/app`.  
+E deixará a porta `3000` exposta.
