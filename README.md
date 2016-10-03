@@ -7,7 +7,7 @@ Nesse passo a passo vou mostrar como criar uma api com batch requesting.
 ## Docker e Docker-compose
 Primeiro, vamos criar nosso docker compose file.
 
-```
+```bash
 touch docker-compose.yml
 ```
 
@@ -18,7 +18,7 @@ Também vai dizer como nossos containers vão se comunicar.
 
 Pra rodar o parse precisamos de NodeJs, então vamos criar um container com NodeJs.
 
-```
+```yml
 parse:
   image: node:6.7.0
   command: npm start
@@ -35,7 +35,8 @@ parse:
 * Expõe a porta `3000`.
 
 Agora vamos precisar criar a pasta `parse`.
-```
+
+```bash
 mkdir parse
 ```
 
@@ -43,7 +44,7 @@ mkdir parse
 
 O parse usa o MongoDb, então vamos criar um container pra o mongo.
 
-```
+```yml
 mongodb:
   image: mongo
   ports:
@@ -66,13 +67,13 @@ mongodb:
 Agora precisamos instalar o parse. O container `parse` só está com o `NodeJs` instalado.
 Nos poderiamos "entrar no conatiner" e rodar o comando, para "entrar" no conatiner.
 
-```
+```bash
 docker-compose run parse bash
 ```
 
 Dentro do container rodar o comando.
 
-```
+```bash
 npm install -g parse-server
 ```
 
@@ -102,7 +103,7 @@ Basicamente, só estamos dizendo o nome do nosso projeto, a versão e o que ele 
 
 Com isso só será necessário rodar o comando abaixo para instalar todas as dependências.
 
-```
+```bash
 npm install
 ```
 
@@ -114,7 +115,7 @@ Agora vamos criar o script que irá instalar tudo o que precisamos. Vamos criar 
 
 Crie um arquivo chamado `entrypoint.sh` dentro da pasta `parse` e dê permissão de execução.
 
-```
+```bash
 touch parse/entrypoint.sh
 chmod +x parse/entrypoint.sh
 ```
@@ -123,7 +124,7 @@ Agora só precisamos executar `npm install` antes de executar qualquer outro com
 
 O arquivo ficará assim.
 
-```
+```bash
 #!/bin/bash
 npm install
 $@
@@ -131,7 +132,7 @@ $@
 
 Agora só precisamos adicionar o `entrypoint` ao nosso container no `docker-compose.yml`
 
-```
+```yml
 parse:
   image: node:6.7.0
   command: npm start
@@ -139,6 +140,19 @@ parse:
   volumes:
   ...
 ```
+
+### Ligando o Mongo ao Parse
+
+Nossa instancia do mongo roda em um container separado, agora nós precisamos fazer com que os dois containers se conversem. Para isso vamos atualizar o nosso `docker-compose` para addcionar a tag `links` ao `parse`.
+
+```yml
+parse:
+  ...
+  links:
+  - mongodb
+  ...
+```
+
 
 ## Sources
 * Parse - https://parseplatform.github.io
