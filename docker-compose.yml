@@ -1,8 +1,17 @@
 parse:
-  build: ./parse
-  command: ./parse/start.sh
+  image: node:6.7.0
+  command: npm start
   volumes:
     - ./parse:/usr/src/app
+  working_dir: /usr/src/app/
   ports:
     - 3000:3000
-  working_dir: /usr/src/app/
+
+mongodb:
+  image: mongo
+  ports:
+    - "27017:27017"
+    - "28017:28017"
+  command: mongod --rest
+  volumes:
+    - ./mongo/db:/data/db

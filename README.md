@@ -29,12 +29,34 @@ parse:
     - 3000:3000
 ```
 
-Esse container vai usar a pasta parse.  
-O comando padrão `npm start`.  
-Ele compartilhará a pasta `parse` na pasta `usr/src/app`.  
-E deixará a porta `3000` exposta.
+* Usa a *imagem* `node` na versão `6.7.0`
+* Roda o comando `nom start`
+* Compartilha a pasta `parse` na pasta `usr/src/app`.  
+* Expõe a porta `3000`.
 
 Agora vamos precisar criar a pasta `parse`.
 ```
 mkdir parse
 ```
+
+### MongoDb
+
+O parse usa o MongoDb, então vamos criar um container pra o mongo.
+
+```
+mongodb:
+  image: mongo
+  ports:
+    - "27017:27017"
+    - "28017:28017"
+  command: mongod --rest
+  volumes:
+    - ./mongo/db:/data/db
+```
+
+* Usa a imagem `mongo`
+* Expõe as portas, elas não precisam ser expostas, mas estou espondo para poder acessar o banco da minha maquina (host)
+  * 27017 - porta padão
+  * 28017 - porta para versão web
+* Usa o comando `mongod --rest`, para permitir acessar os dados via web
+* Compartilha a pasta `mongo/db` em `data/db`, essa pasta contém os dados do mongo db.
