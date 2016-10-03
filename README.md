@@ -60,3 +60,23 @@ mongodb:
   * 28017 - porta para versão web
 * Usa o comando `mongod --rest`, para permitir acessar os dados via web
 * Compartilha a pasta `mongo/db` em `data/db`, essa pasta contém os dados do mongo db.
+
+### Instalando o Parse
+
+Agora precisamos instalar o parse. O container `parse` só está com o `NodeJs` instalado.
+Nos poderiamos "entrar no conatiner" e rodar o comando, para "entrar" no conatiner.
+
+```
+docker-compose run parse bash
+```
+
+Dentro do container rodar o comando.
+
+```
+npm install -g parse-server
+```
+
+Mas isso não é reproduzivel, seria necessário fazer isso em uma nova maquina.
+Não é isso que queremos.
+
+Para deixar o ambiente reproduzivel vamos criar a nossa imagem.
