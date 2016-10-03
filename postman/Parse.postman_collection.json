@@ -1,0 +1,223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Parse",
+		"_postman_id": "01b51fda-2071-b2cb-4a7d-d3c587af97d8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "rest",
+			"description": "",
+			"item": [
+				{
+					"name": "List Games",
+					"request": {
+						"url": "{{url}}/classes/games",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "{{appId}}",
+								"description": ""
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "{{masterKey}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Need for Speed 2015\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "game by id",
+					"request": {
+						"url": {
+							"raw": "{{url}}/classes/games/:id",
+							"auth": {},
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"games",
+								":id"
+							],
+							"variable": [
+								{
+									"value": "ND3D1MRLSv",
+									"id": "id"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "{{appId}}",
+								"description": ""
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "{{masterKey}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Need for Speed 2015\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Game",
+					"request": {
+						"url": "{{url}}/classes/games/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "{{appId}}",
+								"description": ""
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "{{masterKey}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "id",
+								"value": "ND3D1MRLSv",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Need for Speed 2015\",\n\t\"type\": \"race\",\n\t\"players\": 1,\n\t\"year\": 2015\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update game",
+					"request": {
+						"url": {
+							"raw": "{{url}}/classes/games/:id",
+							"auth": {},
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"games",
+								":id"
+							],
+							"variable": [
+								{
+									"value": "vrAXf0tEun",
+									"id": "id"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "{{appId}}",
+								"description": ""
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "{{masterKey}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Need for Speed 2015\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete game",
+					"request": {
+						"url": {
+							"raw": "{{url}}/classes/games/:id",
+							"auth": {},
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"games",
+								":id"
+							],
+							"variable": [
+								{
+									"value": "vrAXf0tEun",
+									"id": "id"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Parse-Application-Id",
+								"value": "{{appId}}",
+								"description": ""
+							},
+							{
+								"key": "X-Parse-REST-API-Key",
+								"value": "{{masterKey}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Need for Speed 2015\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
