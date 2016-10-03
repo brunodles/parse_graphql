@@ -1,0 +1,3 @@
+mongo/db/*
+parse/node_modules
+parse/npm-debug.log

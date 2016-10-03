@@ -30,7 +30,7 @@ parse:
 ```
 
 * Usa a *imagem* `node` na versão `6.7.0`
-* Roda o comando `nom start`
+* Roda o comando `npm start`
 * Compartilha a pasta `parse` na pasta `usr/src/app`.  
 * Expõe a porta `3000`.
 
@@ -79,8 +79,43 @@ npm install -g parse-server
 Mas isso não é reproduzivel, seria necessário fazer isso em uma nova maquina.
 Não é isso que queremos.
 
-Para deixar o ambiente reproduzivel vamos criar a nossa imagem.
+#### Usando NPM
 
-#### Criando Imagem
+Vamos usar o npm para instalar todas as dependências que precisamos.
+Pra isso vamos criar um arquivo `package.json`.  
+Nesse arquivo vamos definir o nome do nosso projeto, a versão e as dependências, mas usando o formato _json_.
 
-Para criar a nossa imagem, vamos precisar criar um arquivo chamado `Dockerfile`, dentro da pasta parse, só pra deixar organizado.
+```json
+{
+  "name": "my-parse",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "~4.2.x",
+    "kerberos": "~0.0.x",
+    "parse": "~1.6.12",
+    "parse-server": "~2.0"
+  }
+}
+```
+
+Basicamente, só estamos dizendo o nome do nosso projeto, a versão e o que ele precisa.
+
+Com isso só será necessário rodar o comando abaixo para instalar todas as dependências.
+
+```
+npm install
+```
+
+Mas esse comando precisa ser rodado dentro do container.
+
+
+## Sources
+* Parse - https://parseplatform.github.io
+* Parse Server - https://github.com/ParsePlatform/parse-server
+* Parse Server Example - https://github.com/ParsePlatform/parse-server-example
+* MongoDb https://docs.mongodb.com/manual/reference/default-mongodb-port/
+* Docker Compose - https://docs.docker.com/compose/gettingstarted/
+* DockerHub - NodeJs - https://hub.docker.com/_/node/
+* DockerHub - MongoDb - https://hub.docker.com/_/mongo/
+* Padawan Docker - Parse -https://github.com/Padawan-org/Padawan-Docker/tree/parse
+* Parse Server - Rest Api - http://parseplatform.github.io/docs/rest/guide/
