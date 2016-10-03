@@ -83,7 +83,7 @@ Não é isso que queremos.
 
 Vamos usar o npm para instalar todas as dependências que precisamos.
 Pra isso vamos criar um arquivo `package.json`.  
-Nesse arquivo vamos definir o nome do nosso projeto, a versão e as dependências, mas usando o formato _json_.
+Nesse arquivo vamos definir o nome do nosso projeto, a versão e as dependências, mas usando o formato *json*.
 
 ```json
 {
@@ -108,6 +108,37 @@ npm install
 
 Mas esse comando precisa ser rodado dentro do container.
 
+### Automatizando Script de instalação e execução
+
+Agora vamos criar o script que irá instalar tudo o que precisamos. Vamos criar um *entrypoint*.
+
+Crie um arquivo chamado `entrypoint.sh` dentro da pasta `parse` e dê permissão de execução.
+
+```
+touch parse/entrypoint.sh
+chmod +x parse/entrypoint.sh
+```
+
+Agora só precisamos executar `npm install` antes de executar qualquer outro comando.
+
+O arquivo ficará assim.
+
+```
+#!/bin/bash
+npm install
+$@
+```
+
+Agora só precisamos adicionar o `entrypoint` ao nosso container no `docker-compose.yml`
+
+```
+parse:
+  image: node:6.7.0
+  command: npm start
+  entrypoint: ./entrypoint.sh
+  volumes:
+  ...
+```
 
 ## Sources
 * Parse - https://parseplatform.github.io
