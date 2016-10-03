@@ -20,17 +20,17 @@ Pra rodar o parse precisamos de NodeJs, então vamos criar um container com Node
 
 ```
 parse:
-  build: ./parse
-  command: ./parse/start.sh
+  image: node:6.7.0
+  command: npm start
   volumes:
     - ./parse:/usr/src/app
+  working_dir: /usr/src/app/
   ports:
     - 3000:3000
-  working_dir: /usr/src/app/
 ```
 
 Esse container vai usar a pasta parse.  
-O comando padrão está no `start.sh`.  
+O comando padrão `npm start`.  
 Ele compartilhará a pasta `parse` na pasta `usr/src/app`.  
 E deixará a porta `3000` exposta.
 
