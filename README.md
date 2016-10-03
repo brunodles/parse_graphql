@@ -33,3 +33,8 @@ Esse container vai usar a pasta parse.
 O comando padrão está no `start.sh`.  
 Ele compartilhará a pasta `parse` na pasta `usr/src/app`.  
 E deixará a porta `3000` exposta.
+
+Agora vamos precisar criar a pasta `parse`.
+```
+mkdir parse
+```
