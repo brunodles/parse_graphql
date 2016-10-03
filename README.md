@@ -107,7 +107,48 @@ Com isso só será necessário rodar o comando abaixo para instalar todas as dep
 npm install
 ```
 
-Mas esse comando precisa ser rodado dentro do container.
+Mas esse comando precisa ser rodado dentro do container, vamos ver isso depois.
+
+#### Criando o app
+
+O `parse` pode ser montado dentro do `Express` e é isso que vamos fazer aqui.
+
+Crie um arquivo chamado `index.js` dentro da pasta `parse`
+
+```bash
+touch parse/index.js
+```
+
+Vamos precisar da lib `express` e `parse-server`, lembrando que elas já estão no nosso `package.json`.
+
+```js
+var express = require('express');
+var ParseServer = require('parse-server').ParseServer;
+```
+
+Usando a variável `express` vamos criar o nosso `app` e usando o `ParseServer` vamos criar a `api`.
+
+```js
+var app = express();
+
+var api = new ParseServer({
+  databaseURI: process.env.DATABASE_URI,
+  appId: process.env.APP_ID,
+  masterKey: process.env.MASTER_KEY
+});
+```
+
+Vamos usar variáveis de ambiente para poder deixar a api configurada, logo vamos configurar a api.
+
+Agora só precisamos colocar a `api` dentro do `app` para poder iniciar.
+
+```js
+app.use(process.env.PARSE_MOUNT, api);
+
+app.listen(process.env.PORT, function() {
+  console.log('parse-server-example running on port ' + process.env.PORT);
+});
+```
 
 ### Automatizando Script de instalação e execução
 
@@ -153,6 +194,22 @@ parse:
   ...
 ```
 
+### Configurações do Parse
+
+No `index.js` estamos usando várias variáveis de ambiente. Agora vamos configurar essas variáveis.
+
+Dentro do arquivo `docker-compose.yml` vamos adicionar um novo parâmetro ao container `parse`.
+
+```yml
+parse:
+  ...
+  environment:
+    - DATABASE_URI=mongodb://mongodb:27017/dev
+    - APP_ID=AppId
+    - MASTER_KEY=MasterKey
+    - PARSE_MOUNT=/api
+    - PORT=1337
+```
 
 ## Sources
 * Parse - https://parseplatform.github.io
