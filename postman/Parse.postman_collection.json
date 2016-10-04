@@ -8,6 +8,26 @@
 	},
 	"item": [
 		{
+			"name": "graphql",
+			"description": "",
+			"item": [
+				{
+					"name": "GetComplex",
+					"request": {
+						"url": "{{url_graph}}?query={ games { id name type players year } need: game (id:\"vrAXf0tEun\") { name } witcher: game (id:\"GRFASuiM5u\") { name } }",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "rest",
 			"description": "",
 			"item": [
@@ -57,7 +77,7 @@
 							],
 							"variable": [
 								{
-									"value": "ND3D1MRLSv",
+									"value": "vrAXf0tEun",
 									"id": "id"
 								}
 							]
@@ -91,7 +111,7 @@
 				{
 					"name": "Create Game",
 					"request": {
-						"url": "{{url}}/classes/games/",
+						"url": "{{url_graphql}}/classes/games/",
 						"method": "POST",
 						"header": [
 							{
