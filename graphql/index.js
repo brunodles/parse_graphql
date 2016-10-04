@@ -58,12 +58,12 @@ const QueryType = new GraphQLObjectType({
     }
   }
 });
-const GraphQLSchema = new GraphQLSchema({
+const Schema = new GraphQLSchema({
   query: QueryType,
 })
 
 app.use('/graphql', graphqlHTTP({
-  schema: GraphQLSchema,
+  schema: Schema,
   graphiql: true
 }));
 
