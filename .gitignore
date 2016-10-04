@@ -1,3 +1,4 @@
 mongo/db/*
 parse/node_modules
+graphql/node_modules
 parse/npm-debug.log
