@@ -3,8 +3,10 @@
 Nesse passo a passo vou mostrar como criar uma api com batch requesting.
 
 
+## Parse
+Para começar esse tutorial vamos precisar de uma api funcionando. Então vamos instalar o `parse` usando docker.
 
-## Docker e Docker-compose
+### Docker e Docker-compose
 Primeiro, vamos criar nosso docker compose file.
 
 ```bash
@@ -77,14 +79,11 @@ Dentro do container rodar o comando.
 npm install -g parse-server
 ```
 
-Mas isso não é reproduzivel, seria necessário fazer isso em uma nova maquina.
-Não é isso que queremos.
-
 #### Usando NPM
 
 Vamos usar o npm para instalar todas as dependências que precisamos.
 Pra isso vamos criar um arquivo `package.json`.  
-Nesse arquivo vamos definir o nome do nosso projeto, a versão e as dependências, mas usando o formato *json*.
+Nesse arquivo vamos definir o nome do nosso projeto, a versão e as dependências, usando o formato *json*.
 
 ```json
 {
@@ -211,6 +210,79 @@ parse:
     - PORT=1337
 ```
 
+### Rodando
+
+Para rodar agora apenas um comando é necessário.
+
+```bash
+docker-compose up
+```
+Como já deixamos tudo configurado, esse comando vai baixar e instalar tudo que precisamos. Ao final irá iniciar os nossos containers.
+
+## GraphQL-js
+O GraphQl é uma nova forma de criar fazer pesquisas em apis. Uma das ideias é deixar que o cliente escolha quais dados ele deseja. Também permite fazer mais de uma requisição ao mesmo tempo, permitindo assim reduzir a quantidade de requisições feitas a api.
+
+### Criando Middleware
+O GraphQl poderia ser instalado dentro do mesmo app do do parse, mas aqui vamos instalar em um app separado de container separado. A ideia é mostrar que da pra usar o graphQl junto com uma Api Rest.
+
+Então pra isso vamos criar uma nova pasta.
+
+```bash
+mkdir graphql
+```
+
+A estrutura desse app é igual com a que fizemos para o `parse`.  
+Então vamos criar os arquivos `entrypoint.sh`, `index.js` e `package.json`
+
+```bash
+mkdir graphql
+touch graphql/entrypoint.sh
+touch graphql/index.js
+touch graphql/package.json
+chmod +x graphql/entrypoint.sh
+```
+
+O `entrypoint.sh` vai ser igual.
+```bash
+#!/bin/bash
+npm install
+$@
+```
+
+No `package.json`, vamos usar algumas libs diferentes.
+```json
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "~4.2.x",
+    "express-graphql": "^0.5.4",
+    "graphql": "^0.7.1",
+    "node-fetch": "^1.6.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
+```
+
+#### Construindo a GraphQL Query
+
+Aqui também iremos usar o `express`.  
+Então nosso `index.js` inicial será assim.
+
+```js
+const express = require('express');
+
+var app = express();
+
+app.listen(process.env.PORT, function() {
+    console.log('GraphQl running on port ' + process.env.PORT + '.');
+});
+```
+*Sim, também vamos usar variáveis de ambiente aqui.*
+
+
 ## Sources
 * Parse - https://parseplatform.github.io
 * Parse Server - https://github.com/ParsePlatform/parse-server
@@ -219,5 +291,19 @@ parse:
 * Docker Compose - https://docs.docker.com/compose/gettingstarted/
 * DockerHub - NodeJs - https://hub.docker.com/_/node/
 * DockerHub - MongoDb - https://hub.docker.com/_/mongo/
-* Padawan Docker - Parse -https://github.com/Padawan-org/Padawan-Docker/tree/parse
+* Padawan Docker - Parse - https://github.com/Padawan-org/Padawan-Docker/tree/parse
 * Parse Server - Rest Api - http://parseplatform.github.io/docs/rest/guide/
+* GraphQL - http://graphql.org/
+* GraphQL-js - https://github.com/graphql/graphql-js
+* Parse-GraphQl-Server - https://github.com/bakery/parse-graphql-server
+* Express GraphQl - https://github.com/graphql/express-graphql
+* GraphQl and Parse -  http://blog.thebakery.io/getting-graphql-to-play-nicely-with-parse-server-and-react-native/
+* GraphQl + NodeJS + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
+* Zero to GraphQL - https://www.youtube.com/watch?v=UBGzsb2UkeY
+
+## Useful Links
+* GraphQl + NodeJs + Sql -
+https://www.reindex.io/blog/building-a-graphql-server-with-node-js-and-sql/
+* GraphQl + Nodejs + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
+* graphql-server - https://github.com/RisingStack/graphql-server
+* GraphQl and NodeJS  - https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/
