@@ -1,0 +1,13 @@
+{
+  "name": "graphql-server",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "~4.2.x",
+    "express-graphql": "^0.5.4",
+    "graphql": "^0.7.1",
+    "node-fetch": "^1.6.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

@@ -1,20 +1,41 @@
 parse:
   image: node:6.7.0
-  command: npm start
   entrypoint: ./entrypoint.sh
-  volumes:
-    - ./parse:/usr/src/app
   working_dir: /usr/src/app/
+  command: npm start
+  volumes:
+    - ./node_modules:/usr/src/node_modules
+    - ./parse:/usr/src/app
   ports:
     - 1337:1337
   links:
     - mongodb
   environment:
+    - NODE_PATH:/usr/src/node_modules
     - DATABASE_URI=mongodb://mongodb:27017/dev
     - APP_ID=myAppId
     - MASTER_KEY=myMasterKey
     - PARSE_MOUNT=/api
     - PORT=1337
+
+graphql:
+  image: node:6.7.0
+  entrypoint: ./entrypoint.sh
+  working_dir: /usr/src/app/
+  command: npm start
+  volumes:
+    - ./node_modules:/usr/src/node_modules
+    - ./graphql:/usr/src/app
+  ports:
+    - 1338:1338
+  links:
+    - parse
+  environment:
+    - NODE_PATH:/usr/src/node_modules
+    - API_URL=http://parse:1337/api/classes
+    - APP_ID=myAppId
+    - MASTER_KEY=myMasterKey
+    - PORT=1338
 
 mongodb:
   image: mongo

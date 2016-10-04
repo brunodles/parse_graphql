@@ -282,6 +282,87 @@ app.listen(process.env.PORT, function() {
 ```
 *Sim, também vamos usar variáveis de ambiente aqui.*
 
+Importe todas as dependências que vamos precisar, adicione no topo do `index.js`.
+```js
+const graphqlHTTP = require('express-graphql');
+const graphql= require('graphql');
+const GraphQLSchema = graphql.GraphQLSchema;
+const GraphQLObjectType = graphql.GraphQLObjectType;
+const GraphQLString = graphql.GraphQLString;
+const GraphQLInt = graphql.GraphQLInt;
+const GraphQLList = graphql.GraphQLList;
+const fetch = require('node-fetch');
+```
+
+Antes do `app.listen`, adicione o graphQL ao `app`.
+```js
+app.use('/graphql', graphqlHTTP({
+  schema: GraphQLSchema,
+  graphiql: true
+}));
+```
+
+O `graphqlHTTP` que adicionamos está usando um `GraphQLSchema` que não existe,
+então crie acima do `app.use`.
+```js
+const GraphQLSchema = new GraphQLSchema({
+  query: QueryType,
+})
+```
+
+Novamente outra referência que não existe, então vamos adicionar todo o resto.
+```js
+const GamesType = new GraphQLObjectType({
+  name: 'Game',
+  fields: {
+    id: {
+      type: GraphQLString,
+      resolve(root, args) { return root.objectId }
+    },
+    name: {type: GraphQLString},
+    type: {type: GraphQLString},
+    year: {type: GraphQLInt},
+    players: {type: GraphQLInt}
+  }
+});
+const QueryType = new GraphQLObjectType({
+  name: 'Query',
+  fields: {
+    games: {
+      type: new GraphQLList(GamesType),
+      resolve(root, args) {
+        var url = process.env.API_URL+"/games/";
+        console.log(url);
+        return fetch(url,
+          {"headers": {
+            "X-Parse-Application-Id":process.env.APP_ID,
+            "X-Parse-REST-API-Key": process.env.MASTER_KEY
+          }})
+          .then(res => res.json())
+          .then(j => j.results)
+      }
+    },
+    game: {
+      type: GamesType,
+      args: {
+        id: {type:GraphQLString}
+      },
+      resolve(root, args) {
+        var url = process.env.API_URL+"/games/"+args.id;
+        console.log(url);
+        return fetch(url,
+          {"headers": {
+            "X-Parse-Application-Id":process.env.APP_ID,
+            "X-Parse-REST-API-Key": process.env.MASTER_KEY
+          }})
+          .then(res => res.json())
+      }
+    }
+  }
+});
+```
+O resultado deve ser (assim)[graphql/index.js].
+
 
 ## Sources
 * Parse - https://parseplatform.github.io
