@@ -365,15 +365,22 @@ O resultado deve ser (assim)[graphql/index.js].
 
 
 ## Sources
+### Parse
 * Parse - https://parseplatform.github.io
 * Parse Server - https://github.com/ParsePlatform/parse-server
 * Parse Server Example - https://github.com/ParsePlatform/parse-server-example
+* Parse Server - Rest Api - http://parseplatform.github.io/docs/rest/guide/
+
+### Mongo
 * MongoDb https://docs.mongodb.com/manual/reference/default-mongodb-port/
+
+### Docker
 * Docker Compose - https://docs.docker.com/compose/gettingstarted/
 * DockerHub - NodeJs - https://hub.docker.com/_/node/
 * DockerHub - MongoDb - https://hub.docker.com/_/mongo/
 * Padawan Docker - Parse - https://github.com/Padawan-org/Padawan-Docker/tree/parse
-* Parse Server - Rest Api - http://parseplatform.github.io/docs/rest/guide/
+
+### GraphQL
 * GraphQL - http://graphql.org/
 * GraphQL-js - https://github.com/graphql/graphql-js
 * Parse-GraphQl-Server - https://github.com/bakery/parse-graphql-server
@@ -382,7 +389,16 @@ O resultado deve ser (assim)[graphql/index.js].
 * GraphQl + NodeJS + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
 * Zero to GraphQL - https://www.youtube.com/watch?v=UBGzsb2UkeY
 
-## Useful Links
+### Android
+* Big cookie Model - https://www.youtube.com/watch?v=GhWWFwg8xEU
+* Efficient data transfer in Android - http://www.slideshare.net/CotapEng/efficient-data-transfer-tech-talk
+* Efficient Download - https://developer.android.com/training/efficient-downloads/index.html
+* DevBytes: Efficient Data Transfers - https://www.youtube.com/playlist?list=PLWz5rJ2EKKc-VJS9WQlj9xM_ygPopZ-Qd
+* DevBytes: Efficient Data Transfers - Understanding the Cell Radio - https://www.youtube.com/watch?v=cSIB2pDvH3E&index=1&list=PLWz5rJ2EKKc-VJS9WQlj9xM_ygPopZ-Qd
+* DevBytes: Efficient Data Transfers - Batching, Bundling, and SyncAdapters - https://www.youtube.com/watch?v=5onKZcJyJwI
+* Batch Processing - http://www.odata.org/documentation/odata-version-3-0/batch-processing/
+
+### Useful Links
 * GraphQl + NodeJs + Sql -
 https://www.reindex.io/blog/building-a-graphql-server-with-node-js-and-sql/
 * GraphQl + Nodejs + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
