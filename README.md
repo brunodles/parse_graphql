@@ -404,3 +404,4 @@ https://www.reindex.io/blog/building-a-graphql-server-with-node-js-and-sql/
 * GraphQl + Nodejs + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
 * graphql-server - https://github.com/RisingStack/graphql-server
 * GraphQl and NodeJS  - https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/
+* Will GraphQL replace REST? - https://dev.to/reactiveconf/why-i-believe-graphql-will-come-to-replace-rest
