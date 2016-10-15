@@ -219,6 +219,27 @@ docker-compose up
 ```
 Como já deixamos tudo configurado, esse comando vai baixar e instalar tudo que precisamos. Ao final irá iniciar os nossos containers.
 
+#### Criando entidade
+Agora vamos criar nosso objeto no parse. Como ele é um BaaS só precisamos mandar o registro utilizando a *api* de *REST*.
+
+O comando abaixo já irá criar a nossa entidade e fará o registro do nosso primeiro jogo.
+
+```bash
+curl -X POST -H "X-Parse-Application-Id: myAppId" -H "X-Parse-REST-API-Key: myMasterKey" -H "Content-Type: application/json" -d '{
+	"name": "Need For Speed",
+	"type": "race",
+	"players": 1,
+	"year": 2016
+}' "http://localhost:1337/api/classes/games/"
+```
+Use o comando acima para criar vários jogos.
+
+#### Listando Objetos
+A partir de agora já é possível listar nossos jogos.
+```bash
+curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-REST-API-Key: myMasterKey" -H "Content-Type: application/json" "http://localhost:1337/api/classes/games"
+```
+
 ## GraphQL-js
 O GraphQl é uma nova forma de criar fazer pesquisas em apis. Uma das ideias é deixar que o cliente escolha quais dados ele deseja. Também permite fazer mais de uma requisição ao mesmo tempo, permitindo assim reduzir a quantidade de requisições feitas a api.
 
