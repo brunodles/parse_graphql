@@ -17,6 +17,7 @@ parse:
     - MASTER_KEY=myMasterKey
     - PARSE_MOUNT=/api
     - PORT=1337
+    - SERVER_URL=http://parse:1337/api
 
 graphql:
   image: node:6.7.0

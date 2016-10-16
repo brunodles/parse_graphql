@@ -6,7 +6,8 @@ var app = express();
 var api = new ParseServer({
   databaseURI: process.env.DATABASE_URI,
   appId: process.env.APP_ID,
-  masterKey: process.env.MASTER_KEY
+  masterKey: process.env.MASTER_KEY,
+  serverURL: process.env.SERVER_URL
 });
 
 app.use(process.env.PARSE_MOUNT, api);
