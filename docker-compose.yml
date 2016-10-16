@@ -1,13 +1,33 @@
+
 parse:
+  build: parse
+  working_dir: /usr/src/app/
+  volumes:
+    - ./parse:/usr/src/app
+  ports:
+    - 1337:1337
+  links:
+    - mongodb
+  environment:
+    - PARSE_SERVER_DATABASE_URI=mongodb://mongodb:27017/dev
+    - PARSE_SERVER_APPLICATION_ID=myAppId
+    - PARSE_SERVER_MASTER_KEY=myMasterKey
+    - PARSE_SERVER_MOUNT_PATH=/api
+    - PARSE_SERVER_CLOUD_CODE_MAIN=main.js
+    - PORT=1337
+    - PARSE_SERVER_URL=http://parse.app/api
+    - VIRTUAL_HOST=parse.app
+
+parse-e:
   image: node:6.7.0
   entrypoint: ./entrypoint.sh
   working_dir: /usr/src/app/
   command: npm start
   volumes:
     - ./node_modules:/usr/src/node_modules
-    - ./parse:/usr/src/app
+    - ./parse-express:/usr/src/app
   ports:
-    - 1337:1337
+    - 1336:1336
   links:
     - mongodb
   environment:
@@ -16,9 +36,9 @@ parse:
     - APP_ID=myAppId
     - MASTER_KEY=myMasterKey
     - PARSE_MOUNT=/api
-    - PORT=1337
-    - SERVER_URL=http://parse:1337/api
-    - VIRTUAL_HOST=parse.app
+    - PORT=1336
+    - SERVER_URL=http://parse-e.app/api
+    - VIRTUAL_HOST=parse-e.app
 
 graphql:
   image: node:6.7.0

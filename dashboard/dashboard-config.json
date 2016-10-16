@@ -8,6 +8,13 @@
       "production": false
     },
     {
+      "serverURL": "http://parse-e.app/api",
+      "appId": "myAppId",
+      "masterKey": "myMasterKey",
+      "appName": "Games on Express",
+      "production": false
+    },
+    {
       "serverURL": "https://api.parse.com/1",
       "appId": "CR8YxEDmDip01Wt0M2BoIyI6b5uQCHEKpJnpRioQ",
       "masterKey": "EVKZdl6l5PKzFi6KzdJz1TwxQA6AR5F3jAOxYbv1",
