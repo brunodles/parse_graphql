@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "Parse",
+		"name": "CodeNCana",
 		"_postman_id": "01b51fda-2071-b2cb-4a7d-d3c587af97d8",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -20,6 +20,34 @@
 						"body": {
 							"mode": "formdata",
 							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple",
+					"request": {
+						"url": "{{url_graph}}?query=query games {   games {     id     name   }    }  mutation create {   createGame(name: \"Infamous: Second Sons\", type: \"Adventure\", year: 2012, players: 1, online: false) {     id     name   } }",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "query games {\n  games {\n    id\n    name\n  }\n  \n}\n\nmutation create {\n  createGame(name: \"Infamous: Second Sons\", type: \"Adventure\", year: 2012, players: 1, online: false) {\n    id\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CreateGame",
+					"request": {
+						"url": "{{url_graph}}?query=mutation {   createGame(name: \"Mortal Kombat X\", type: \"Fighting\", year: 2014, players: 2, online: true) {     id     } }",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "query="
 						},
 						"description": ""
 					},
@@ -111,7 +139,7 @@
 				{
 					"name": "Create Game",
 					"request": {
-						"url": "{{url_graphql}}/classes/games/",
+						"url": "{{url}}/classes/games/",
 						"method": "POST",
 						"header": [
 							{
@@ -128,16 +156,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"description": ""
-							},
-							{
-								"key": "id",
-								"value": "ND3D1MRLSv",
-								"description": ""
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Need for Speed 2015\",\n\t\"type\": \"race\",\n\t\"players\": 1,\n\t\"year\": 2015\n}"
+							"raw": "{\n\t\"name\": \"Forza Horizon\",\n\t\"type\": \"race\",\n\t\"players\": 1,\n\t\"year\": 2016,\n\t\"online\": true\n}"
 						},
 						"description": ""
 					},
@@ -206,7 +229,7 @@
 							],
 							"variable": [
 								{
-									"value": "vrAXf0tEun",
+									"value": "NYhsMbEGyJ",
 									"id": "id"
 								}
 							]
@@ -231,7 +254,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Need for Speed 2015\"\n}"
+							"raw": ""
 						},
 						"description": ""
 					},
