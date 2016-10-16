@@ -13,12 +13,6 @@
       "masterKey": "EVKZdl6l5PKzFi6KzdJz1TwxQA6AR5F3jAOxYbv1",
       "appName": "AndroidDeviceName",
       "production": false
-    },
-    {
-      "serverURL": "https://api.parse.com/1",
-      "appId": "AqvoKDYG4aFXxC3banhQjHHgNz5XNlAEDfkAYSa0",
-      "masterKey":"z9f7LYupYDUDnIfHQ945gsFxcR9lFWpyV2I4gXQ1",
-      "appName": "Ponto Pessoal"
     }
   ],
   "users": [
