@@ -409,6 +409,8 @@ O resultado deve ser (assim)[graphql/index.js].
 * GraphQl and Parse -  http://blog.thebakery.io/getting-graphql-to-play-nicely-with-parse-server-and-react-native/
 * GraphQl + NodeJS + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
 * Zero to GraphQL - https://www.youtube.com/watch?v=UBGzsb2UkeY
+* GraphQL Mutations - https://medium.com/@HurricaneJames/graphql-mutations-fb3ad5ae73c4#.rq4jn6n61
+* GraphQl and NodeJS  - https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/
 
 ### Android
 * Big cookie Model - https://www.youtube.com/watch?v=GhWWFwg8xEU
@@ -424,6 +426,5 @@ O resultado deve ser (assim)[graphql/index.js].
 https://www.reindex.io/blog/building-a-graphql-server-with-node-js-and-sql/
 * GraphQl + Nodejs + MongoDb - https://www.sitepoint.com/creating-graphql-server-nodejs-mongodb/
 * graphql-server - https://github.com/RisingStack/graphql-server
-* GraphQl and NodeJS  - https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/
 * Will GraphQL replace REST? - https://dev.to/reactiveconf/why-i-believe-graphql-will-come-to-replace-rest
 * From REST to GraphQL - https://www.youtube.com/shared?ci=85dJSyBIy7M
