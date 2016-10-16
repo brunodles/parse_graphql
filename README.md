@@ -395,9 +395,11 @@ O resultado deve ser (assim)[graphql/index.js].
 * Parse Server - https://github.com/ParsePlatform/parse-server
 * Parse Server Example - https://github.com/ParsePlatform/parse-server-example
 * Parse Server - Rest Api - http://parseplatform.github.io/docs/rest/guide/
+* Parse dashboard - https://github.com/ParsePlatform/parse-dashboard
 
 ### Mongo
 * MongoDb https://docs.mongodb.com/manual/reference/default-mongodb-port/
+* MongoDb admin - https://github.com/mongo-express/mongo-express
 
 ### Docker
 * Docker Compose - https://docs.docker.com/compose/gettingstarted/
