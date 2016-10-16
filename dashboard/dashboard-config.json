@@ -1,0 +1,31 @@
+{
+  "apps": [
+    {
+      "serverURL": "http://parse.app/api",
+      "appId": "myAppId",
+      "masterKey": "myMasterKey",
+      "appName": "Games",
+      "production": false
+    },
+    {
+      "serverURL": "https://api.parse.com/1",
+      "appId": "CR8YxEDmDip01Wt0M2BoIyI6b5uQCHEKpJnpRioQ",
+      "masterKey": "EVKZdl6l5PKzFi6KzdJz1TwxQA6AR5F3jAOxYbv1",
+      "appName": "AndroidDeviceName",
+      "production": false
+    },
+    {
+      "serverURL": "https://api.parse.com/1",
+      "appId": "AqvoKDYG4aFXxC3banhQjHHgNz5XNlAEDfkAYSa0",
+      "masterKey":"z9f7LYupYDUDnIfHQ945gsFxcR9lFWpyV2I4gXQ1",
+      "appName": "Ponto Pessoal"
+    }
+  ],
+  "users": [
+    {
+      "user":"root",
+      "pass":"pass"
+    }
+  ],
+  "useEncryptedPasswords": false
+}

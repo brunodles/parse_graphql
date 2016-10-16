@@ -40,6 +40,28 @@ graphql:
     - PORT=1338
     - VIRTUAL_HOST=graphql.app
 
+dashboard:
+  build: dashboard
+  working_dir: /usr/src/app/
+  # command: parse-dashboard
+  command: parse-dashboard --config dashboard-config.json
+  volumes:
+    - ./dashboard:/usr/src/app
+  ports:
+    - 1339:1339
+  links:
+    - parse
+  environment:
+    - PORT=1339
+    - PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1
+    # - PARSE_DASHBOARD_SERVER_URL=http://parse:1337/api
+    # - PARSE_DASHBOARD_APP_NAME=Parse FTW
+    # - PARSE_DASHBOARD_MASTER_KEY=myMasterKey
+    # - PARSE_DASHBOARD_APP_ID=myAppId
+    # - PARSE_DASHBOARD_USER_ID=root
+    # - PARSE_DASHBOARD_USER_PASSWORD=parse
+    - VIRTUAL_HOST=dashboard.app
+
 mongodb:
   image: mongo
   ports:
