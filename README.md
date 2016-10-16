@@ -404,6 +404,7 @@ O resultado deve ser (assim)[graphql/index.js].
 * DockerHub - NodeJs - https://hub.docker.com/_/node/
 * DockerHub - MongoDb - https://hub.docker.com/_/mongo/
 * Padawan Docker - Parse - https://github.com/Padawan-org/Padawan-Docker/tree/parse
+* Reverse Proxy - https://github.com/jwilder/nginx-proxy
 
 ### GraphQL
 * GraphQL - http://graphql.org/

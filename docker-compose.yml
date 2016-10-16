@@ -18,6 +18,7 @@ parse:
     - PARSE_MOUNT=/api
     - PORT=1337
     - SERVER_URL=http://parse:1337/api
+    - VIRTUAL_HOST=parse.app
 
 graphql:
   image: node:6.7.0
@@ -37,6 +38,7 @@ graphql:
     - APP_ID=myAppId
     - MASTER_KEY=myMasterKey
     - PORT=1338
+    - VIRTUAL_HOST=graphql.app
 
 mongodb:
   image: mongo
@@ -46,3 +48,13 @@ mongodb:
   command: mongod --rest
   volumes:
     - ./mongo/db:/data/db
+  environment:
+    - VIRTUAL_HOST=mongodb.app
+
+nginx:
+  image: jwilder/nginx-proxy
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  ports:
+    - "80:80"
+    - "443:443"
