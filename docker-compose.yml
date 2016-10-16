@@ -51,6 +51,16 @@ mongodb:
   environment:
     - VIRTUAL_HOST=mongodb.app
 
+mongoadmin:
+  image: mongo-express
+  ports:
+    - 8081:8081
+  links:
+    - mongodb
+  environment:
+    - VIRTUAL_HOST=admin.mongodb.app
+
+
 nginx:
   image: jwilder/nginx-proxy
   volumes:
