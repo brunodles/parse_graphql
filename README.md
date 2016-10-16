@@ -386,6 +386,10 @@ O resultado deve ser (assim)[graphql/index.js].
 
 
 ## Sources
+### Node
+* Automate Restart Comparison - https://strongloop.com/strongblog/comparison-tools-to-automate-restarting-node-js-server-after-code-changes-forever-nodemon-nodesupervisor-nodedev/
+* Nodemon - https://github.com/remy/nodemon
+
 ### Parse
 * Parse - https://parseplatform.github.io
 * Parse Server - https://github.com/ParsePlatform/parse-server
@@ -429,3 +433,6 @@ https://www.reindex.io/blog/building-a-graphql-server-with-node-js-and-sql/
 * graphql-server - https://github.com/RisingStack/graphql-server
 * Will GraphQL replace REST? - https://dev.to/reactiveconf/why-i-believe-graphql-will-come-to-replace-rest
 * From REST to GraphQL - https://www.youtube.com/shared?ci=85dJSyBIy7M
+* GraphQL vs Falcor - https://medium.com/apollo-stack/graphql-vs-falcor-4f1e9cbf7504#.ox8ffki6f
+* Graph*i*QL - https://github.com/graphql/graphiql
+* GraphQL pagination - http://graphql.org/learn/pagination/
