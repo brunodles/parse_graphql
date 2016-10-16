@@ -8,7 +8,7 @@
       "production": false
     },
     {
-      "serverURL": "http://parse-e.app/api",
+      "serverURL": "http://e-parse.app/api",
       "appId": "myAppId",
       "masterKey": "myMasterKey",
       "appName": "Games on Express",

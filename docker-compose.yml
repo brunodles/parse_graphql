@@ -1,4 +1,3 @@
-
 parse:
   build: parse
   working_dir: /usr/src/app/
@@ -18,7 +17,7 @@ parse:
     - PARSE_SERVER_URL=http://parse.app/api
     - VIRTUAL_HOST=parse.app
 
-parse-e:
+e-parse:
   image: node:6.7.0
   entrypoint: ./entrypoint.sh
   working_dir: /usr/src/app/
@@ -37,8 +36,8 @@ parse-e:
     - MASTER_KEY=myMasterKey
     - PARSE_MOUNT=/api
     - PORT=1336
-    - SERVER_URL=http://parse-e.app/api
-    - VIRTUAL_HOST=parse-e.app
+    - SERVER_URL=http://e-parse.app/api
+    - VIRTUAL_HOST=e-parse.app
 
 graphql:
   image: node:6.7.0
@@ -101,7 +100,6 @@ mongoadmin:
     - mongodb
   environment:
     - VIRTUAL_HOST=admin.mongodb.app
-
 
 nginx:
   image: jwilder/nginx-proxy
