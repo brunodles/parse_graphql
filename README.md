@@ -411,6 +411,7 @@ O resultado deve ser (assim)[graphql/index.js].
 * Zero to GraphQL - https://www.youtube.com/watch?v=UBGzsb2UkeY
 * GraphQL Mutations - https://medium.com/@HurricaneJames/graphql-mutations-fb3ad5ae73c4#.rq4jn6n61
 * GraphQl and NodeJS  - https://blog.risingstack.com/graphql-overview-getting-started-with-graphql-and-nodejs/
+* GraphQL Mutations - https://facebook.github.io/relay/docs/graphql-mutations.html
 
 ### Android
 * Big cookie Model - https://www.youtube.com/watch?v=GhWWFwg8xEU
