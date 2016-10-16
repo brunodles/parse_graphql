@@ -1,36 +1,91 @@
 Request the same api, with alias
 
-# List Game names
+# Query
+## List games name
 ```graphQL
-{ games { name} }
+{ games { name } }
+```
+## List all games
+```graphQL
+query listGames {
+  list: games {
+    id
+    name
+    type
+    year
+    players
+    online
+  }
+}
 ```
 
-# List Games, find two games by id
+## List Games and find two games by id
 ```graphQL
 { games { id name type players year } need: game (id:"vrAXf0tEun") { name } witcher: game (id:"GRFASuiM5u") { name } }
 ```
 
-# Create a game and return it's id and name
+# Mutation
+## Create a game and return it's id and name
 ```graphQL
-mutation {
-  createGame(name: "Infamous: Second Sons", type: "Adventure", year: 2012, players: 1, online: false) {
+mutation createOne {
+  create: createGame(name: "New Super Mario Brothers", type: "Platformer", year: 2006, players: 1, online: false) {
     id
-    name
+  }
+}
+```
+## Create multiple games
+```graphQL
+mutation createSamples {
+  c1: createGame(name: "Need For Speed", type: "race", year: 2015, players: 1, online: true) {
+    id
+  }
+  c2: createGame(name: "Forza Horizon", type: "race", year: 2016, players: 1, online: true){
+    id
+  }
+  c3: createGame(name: "The Witcher III" type: "RPG" year:2015 players:1 online: false){
+    id
+  }
+  c4: createGame(name: "Mortal Kombat X" type: "Fighting" year: 2014 players:2 online:true){
+    id
+  }
+  c5: createGame(name: "Infamous: Second Sons", type: "Adventure", year: 2012, players: 1, online: false) {
+    id
   }
 }
 ```
 
-# Delete a game
+## Delete a game
 ```graphQL
-mutation {
-  deleteGame(name: "Infamous: Second Sons", type: "Adventure", year: 2012, players: 1, online: false) {
+mutation deleteOne {
+  delete: deleteGame(id: "smu5R1KxrS") {
     id
-    name
   }
 }
 ```
 
-# Query and delete games
+## Delete multiple games
+```graphQL
+mutation deleteMultiple {
+  d1: deleteGame(id: "vrAXf0tEun"){
+    id
+  }
+  d2: deleteGame(id: "GRFASuiM5u"){
+    id
+  }
+  d3: deleteGame(id: "VtI1xu0KSX"){
+    id
+  }
+  d4: deleteGame(id: "GFNpvmGC13"){
+    id
+  }
+  d5: deleteGame(id: "9FBFM90uOw"){
+    id
+  }
+}
+```
+
+# Complex
+## Query and delete games
 ```graphQL
 query games {
   games {
